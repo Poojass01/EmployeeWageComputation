@@ -6,21 +6,31 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
 
-        int IS_PRESENT = 1;
+        // Constants
+        int IS_PART_TIME = 1;
+        int IS_FULL_TIME = 2;
         int WAGE_PER_HOUR = 20;
-        int WORK_HOURS = 8;
 
+        // Random check
         Random random = new Random();
-        int empCheck = random.nextInt(2); // 0 or 1
+        int empCheck = random.nextInt(3); // 0 = Absent, 1 = Part Time, 2 = Full Time
 
-        if (empCheck == IS_PRESENT) {
-            System.out.println("Employee is Present");
+        int empHours = 0;
 
-            // 👇 UC2 logic goes here:
-            int dailyWage = WAGE_PER_HOUR * WORK_HOURS;
-            System.out.println("Daily Wage: " + dailyWage);
+        if (empCheck == IS_PART_TIME) {
+            empHours = 4;
+            System.out.println("Employee is Working Part Time");
+        } else if (empCheck == IS_FULL_TIME) {
+            empHours = 8;
+            System.out.println("Employee is Working Full Time");
         } else {
+            empHours = 0;
             System.out.println("Employee is Absent");
         }
+
+        int dailyWage = empHours * WAGE_PER_HOUR;
+        System.out.println("Daily Wage: " + dailyWage);
     }
 }
+
+
